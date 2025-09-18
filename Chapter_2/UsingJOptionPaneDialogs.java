@@ -1,27 +1,39 @@
 import javax.swing.JOptionPane;
 
 public class UsingJOptionPaneDialogs {
-
     public static void main(String[] args) {
-        // Infinite loop to keep asking for the name until confirmed
         while (true) {
-            // Prompt the user to enter their name
-            String name = JOptionPane.showInputDialog(null, "Please enter your name:");
+            // Prompt user to enter their name
+            String name = JOptionPane.showInputDialog(null, "Enter your name:", "Input Name", JOptionPane.QUESTION_MESSAGE);
 
-            // Check if the user entered a valid name (non-null and non-empty)
-            if (name != null && !name.trim().isEmpty()) {
-                // Ask if the user wants to show their name
-                int confirmation = JOptionPane.showConfirmDialog(null,
-                        "Do you want your name to be shown?\n" + name, "Confirm Name", JOptionPane.YES_NO_OPTION);
-                
-                // If the user confirms (YES), display the name and exit the loop
-                if (confirmation == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Your name is: " + name);
-                    break;  // Exit the loop since the name is confirmed
-                }
+            // If user presses Cancel or closes the dialog, exit the program
+            if (name == null) {
+                break;
+            }
+
+            // If input is empty, show message and prompt again
+            if (name.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No name input. Please enter your name.", "Warning", JOptionPane.WARNING_MESSAGE);
+                continue; // Go back to input dialog
+            }
+
+            // Confirm if user wants their name to be shown (Yes or No only)
+            int confirm = JOptionPane.showConfirmDialog(null,
+                    "Do you want your name to be shown?",
+                    "Confirm",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                // Show the name in a message dialog
+                JOptionPane.showMessageDialog(null, "Your name is: " + name, "Name Display", JOptionPane.INFORMATION_MESSAGE);
+                break; // Exit the loop and program
+            } else if (confirm == JOptionPane.NO_OPTION) {
+                // Loop back to input dialog
+                continue;
             } else {
-                // If no name is entered, prompt again
-                JOptionPane.showMessageDialog(null, "Please enter a valid name.");
+                // Just in case, exit if dialog is closed without choosing
+                System.exit(0);
             }
         }
     }
