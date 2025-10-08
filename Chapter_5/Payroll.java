@@ -16,8 +16,6 @@ public class Payroll {
         double overtimePay = employee.calculateOvertimePay(hoursWorked);
 
         System.out.printf("Regular pay is %.1f\n", regularPay);
-        System.out.printf("Overtime pay is %.1f\n", overtimePay);
-
-        scanner.close();
+        System.out.printf("Overtime pay is %.1f\n", overtimePay);  
     }
 }
