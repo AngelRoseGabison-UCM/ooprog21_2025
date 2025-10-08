@@ -29,6 +29,6 @@ public class Employee {
             double overtimeHours = hoursWorked - 40;
             return overtimeHours * payRate * OVERTIME_MULTIPLIER;
         }
-        return 0;
+      
     }
 }
