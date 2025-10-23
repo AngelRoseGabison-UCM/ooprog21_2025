@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class BankBalance {
+public class BankBalance2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        double balance = 100.00;  
-        double rate = 0.03;       
+        double balance = 100.00;   
+        double rate = 0.03;        
         int year = 1;
         int choice;
 
