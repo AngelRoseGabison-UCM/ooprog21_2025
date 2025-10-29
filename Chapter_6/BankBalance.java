@@ -28,7 +28,5 @@ public class BankBalance {
             choice = input.nextInt();
         }
 
-        System.out.println("\n----- jGRASP: Operation complete.");
-        input.close();
     }
 }
