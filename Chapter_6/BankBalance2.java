@@ -22,7 +22,5 @@ public class BankBalance2 {
             }
 
         } while (choice == 1);
-
-        System.out.println("----jGRASP: Operation complete.");
     }
 }
